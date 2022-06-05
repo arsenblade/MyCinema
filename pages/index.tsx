@@ -1,14 +1,13 @@
+import Home from '@/components/screens/home/home'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.scss'
 
-const Home: NextPage = () => {
+const HomePage: NextPage = () => {
   return (
-    <div>
-      <h1>HomePage</h1>
-    </div>
+    < Home />
   )
 }
 
-export default Home
+export default HomePage

@@ -1,3 +1,4 @@
+import Heading from "@/components/ui/heading/Heading"
 import Meta from "@/utils/meta/Meta"
 import { FC } from "react"
 import { IHome } from "./home.interface"
@@ -8,7 +9,7 @@ const Home:FC<IHome> = () => {
       title='Watch movies online'
       description='Watch MovieApp movies and TV shows online or stream right to your browser'
     >
-      <h1>Home page</h1>
+      <Heading title='Watch movies online' className='text-gray-300 mb-8 text-xl'/>
     </Meta>
   )
 }

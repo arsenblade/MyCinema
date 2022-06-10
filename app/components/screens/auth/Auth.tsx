@@ -9,6 +9,7 @@ import Meta from '@/utils/meta/Meta';
 import Heading from '@/components/ui/heading/Heading';
 import Button from '@/components/ui/form-elements/Button';
 import AuthFields from './AuthFields';
+import { useActions } from '@/hooks/useActions';
 
 
 const Auth:FC = () => {
@@ -20,9 +21,7 @@ const Auth:FC = () => {
   const {register: registerInput, handleSubmit, formState, reset} = useForm<IAuthInput>({
     mode: 'onChange'
   })
-
-  const login = (data: any) => {}
-  const register = (data: any) => {}
+  const {login, register} = useActions()
 
   const onSubmit:SubmitHandler<IAuthInput> = (data) => {
     if(type === 'login') login(data)

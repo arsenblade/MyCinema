@@ -3,7 +3,6 @@ import { removeTokensStorage } from "@/services/auth/auth.helper";
 import { AuthService } from "@/services/auth/auth.service";
 import axios from "axios";
 import Cookies from "js-cookie";
-import { config } from "process";
 import { errorCatch } from "./api.helpers";
 
 export const axiosClassic = axios.create({

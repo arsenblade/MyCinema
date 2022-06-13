@@ -1,6 +1,7 @@
 import { getMoviesUrl } from "@/config/api.config"
 import { IMovie } from "@/shared/types/movie.types"
 import { axiosClassic } from "api/interceptors"
+import axios from "api/interceptors"
 
 export const MovieService = {
   async getAll(searchTerm?: string) {
@@ -17,5 +18,9 @@ export const MovieService = {
     )
 
     return movies
-  }
+  },
+
+  async deleteMovie(_id: string) {
+		return axios.delete<string>(getMoviesUrl(`/${_id}`))
+	},
 }

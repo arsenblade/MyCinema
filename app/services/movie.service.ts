@@ -2,6 +2,7 @@ import { getMoviesUrl } from "@/config/api.config"
 import { IMovie } from "@/shared/types/movie.types"
 import { axiosClassic } from "api/interceptors"
 import axios from "api/interceptors"
+import { IMovieEditInput } from "@/components/screens/admin/movies/movie/movie-edit.interface"
 
 export const MovieService = {
   async getAll(searchTerm?: string) {
@@ -22,5 +23,17 @@ export const MovieService = {
 
   async deleteMovie(_id: string) {
 		return axios.delete<string>(getMoviesUrl(`/${_id}`))
+	},
+
+  async getById(_id: string) {
+    return axios.get<IMovieEditInput>(getMoviesUrl(`/${_id}`))
+  },
+
+  async updateMovie(_id: string, data: IMovieEditInput) {
+		return axios.put<string>(getMoviesUrl(`/${_id}`), data)
+	},
+
+  async createMovie() {
+		return axios.post<string>(getMoviesUrl(`/`))
 	},
 }

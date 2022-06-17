@@ -7,12 +7,12 @@ import { FC } from 'react'
 import { useActors } from './useActors'
 
 const ActorsList:FC = () => {
-  const {handleSearch, isLoading, searchTerm, deleteAsync, data} = useActors()
+  const {handleSearch, isLoading, searchTerm, deleteAsync, data, createAsync} = useActors()
   return (
     <Meta title='Actors'>
       <AdminNavigation />
       <Heading title='Actors' />
-      <AdminHeader handleSearch={handleSearch} searchTerm={searchTerm}/>
+      <AdminHeader handleSearch={handleSearch} searchTerm={searchTerm} onClick={createAsync}/>
       <AdminTable isLoading={isLoading} removeHandler={deleteAsync} headerItems={['Name', 'Count movies']} tableItems={data || []}/>
     </Meta>
   )

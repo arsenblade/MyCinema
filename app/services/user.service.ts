@@ -15,4 +15,8 @@ export const UserService = {
 		return axios.delete<string>(getUsersUrl(`/${_id}`))
 	},
 
+  async createUser() {
+		return axios.post<string>(getUsersUrl(`/`))
+	},
+
  }

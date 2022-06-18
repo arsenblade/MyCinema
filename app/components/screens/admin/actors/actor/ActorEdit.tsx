@@ -9,16 +9,10 @@ import generateSlug from '@/utils/string/generateSlug'
 import { FC } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import formStyles from '../../../../ui/form-elements/admin-form.module.scss'
-import { stripHtml } from 'string-strip-html'
-import dynamic from 'next/dynamic'
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
 import { IActorEditInput } from './actor-edit.interface'
 import { useActorEdit } from './useActorEdit'
 import UploadField from '@/components/ui/form-elements/UploadField/UploadField'
-
-const DynamicTextEditor = dynamic(() => import('@/components/ui/form-elements/TextEditor'), {
-  ssr: false
-})
 
 const ActorEdit:FC = () => {
 
@@ -65,6 +59,9 @@ const ActorEdit:FC = () => {
                 folder='actors'
                 placeholder='Photo'
               />}
+              rules={{
+                required: 'Photo is required!'
+              }}
             />}
 
           </div>

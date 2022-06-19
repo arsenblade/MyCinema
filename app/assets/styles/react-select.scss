@@ -61,6 +61,23 @@
 		color: rgba(white, 0.6) !important;
 	}
 
+  &__menu-list {
+    overflow-y: scroll !important;
+  }
+
+  &__menu-list::-webkit-scrollbar  {
+    width: 0.5rem !important;
+    --tw-bg-opacity: 1 !important;
+    background-color: rgb(25 27 31 / var(--tw-bg-opacity)) !important;
+  }
+  
+  &__menu-list::-webkit-scrollbar-thumb {
+    width: 0.5rem !important;
+    --tw-bg-opacity: 1 !important;
+    background-color: rgb(16 18 21 / var(--tw-bg-opacity)) !important;
+    border-radius: 30px !important;
+  }
+
 	&__option {
 		cursor: pointer !important;
 		&--is-focused {

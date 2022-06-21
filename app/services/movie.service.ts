@@ -29,6 +29,9 @@ export const MovieService = {
     return axios.get<IMovieEditInput>(getMoviesUrl(`/${_id}`))
   },
 
+  async getBySlug(slug: string) {
+    return axiosClassic.get<IMovie>(getMoviesUrl(`/by-slug/${slug}`))
+  },
   
   async getByGenres(genreIds: string[]) {
     return axiosClassic.post<IMovie[]>(getMoviesUrl('/by-genres'), {genreIds})

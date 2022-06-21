@@ -9,15 +9,15 @@ export const GenreService = {
 		return axiosClassic.get<IGenre>(getGenresUrl(`/by-slug/${slug}`))
 	},
 
-	async create() {
+	async createGenre() {
 		return axios.post<string>(getGenresUrl(''))
 	},
 
-	async update(_id: string, data: IGenreEditInput) {
+	async updateGenre(_id: string, data: IGenreEditInput) {
 		return axios.put<string>(getGenresUrl(`/${_id}`), data)
 	},
 
-	async delete(_id: string) {
+	async deleteGenre(_id: string) {
 		return axios.delete<string>(getGenresUrl(`/${_id}`))
 	},
 

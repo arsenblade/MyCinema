@@ -45,6 +45,13 @@ export const MovieService = {
 		return axios.put<string>(getMoviesUrl(`/${_id}`), data)
 	},
 
+	async updateCountOpened(slug: string) {
+		return axiosClassic.post(getMoviesUrl('/update-count-opened'), {
+			slug,
+		})
+	},
+
+
   async createMovie() {
 		return axios.post<string>(getMoviesUrl(`/`))
 	},

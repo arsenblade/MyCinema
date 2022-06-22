@@ -3,10 +3,15 @@ import { IGenre } from "@/shared/types/movie.types"
 import { axiosClassic } from "api/interceptors"
 import axios from "api/interceptors"
 import { IGenreEditInput } from "@/components/screens/admin/genres/genre/genre-edit.interface"
+import { ICollections } from "@/components/screens/collections/collections.interface"
 
 export const GenreService = {
 	async getBySlug(slug: string) {
 		return axiosClassic.get<IGenre>(getGenresUrl(`/by-slug/${slug}`))
+	},
+
+	async getCollections() {
+		return axiosClassic.get<ICollections[]>(getGenresUrl('/collections'))
 	},
 
 	async createGenre() {

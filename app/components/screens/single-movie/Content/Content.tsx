@@ -1,6 +1,7 @@
 import MaterialIcon from '@/components/ui/MaterialIcon'
 import { getActorUrl, getGenreUrl } from '@/config/url.config'
 import { FC } from 'react'
+import FavoriteButton from '../FavoriteButton/FavoriteButton'
 import { IContent } from './content.interface'
 
 import styles from './Content.module.scss'
@@ -31,6 +32,8 @@ const Content:FC<IContent> = ({movie}) => {
         <MaterialIcon name='MdStarRate' />
         <span>{movie.rating.toFixed(1)}</span>
       </div>
+
+      <FavoriteButton movieId={movie._id}/>
     </div>
   )
 }

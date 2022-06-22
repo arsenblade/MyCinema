@@ -1,15 +1,18 @@
 import Banner from '@/components/ui/banner/Banner'
 import Gallery from '@/components/ui/gallery/Gallery'
 import SubHeading from '@/components/ui/heading/SubHeading'
-import VideoPlayer from '@/components/ui/video-player/VideoPlayer'
 import Meta from '@/utils/meta/Meta'
 import dynamic from 'next/dynamic'
 import { FC } from 'react'
 import Content from './Content/Content'
 import { ISingleMovie } from './single-movie.interface'
 import { useUpdateCountOpened } from './useUpdateCountOpened'
-const DynamicPlayer = dynamic(() => import('@/ui/video-player/VideoPlayer'))
-const DynamicRateMovie = dynamic(() => import('./RateMovie/RateMovie'))
+const DynamicPlayer = dynamic(() => import('@/ui/video-player/VideoPlayer'), {
+  ssr: false
+})
+const DynamicRateMovie = dynamic(() => import('./RateMovie/RateMovie'), {
+  ssr: false
+})
 
 const SingleMovie:FC<ISingleMovie> = ({movie, similarMovies}) => {
   useUpdateCountOpened(movie.slug)

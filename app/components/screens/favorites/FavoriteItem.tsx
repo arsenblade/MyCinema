@@ -1,4 +1,5 @@
 import { getMovieUrl } from '@/config/url.config'
+import { useAuth } from '@/hooks/useAuth'
 import { IMovie } from '@/shared/types/movie.types'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -12,9 +13,10 @@ interface IFavoriteItem {
 }
 
 const FavoriteItem:FC<IFavoriteItem> = ({movie}) => {
+  const {user} = useAuth()
   return (
     <div className={styles.itemWrapper}>
-      <FavoriteButton movieId={movie._id} />
+      { user && <FavoriteButton movieId={movie._id} /> }
       <Link href={getMovieUrl(movie.slug)}>
         <a className={styles.item}>
           <Image 

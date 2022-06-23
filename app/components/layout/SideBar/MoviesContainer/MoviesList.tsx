@@ -14,7 +14,7 @@ const MoviesList:FC<IMovieList> = ({title, link, movies}) => {
       {movies.map(movie => <MovieItem key={movie._id} movie={movie} />)}
       <Link href={link}>
         <a className={styles.button}>
-          See more
+          {link === '/trending' ? 'All trending movies' : 'All popular movies'}
         </a>
       </Link>
     </div>

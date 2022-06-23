@@ -6,7 +6,6 @@ import { useMutation } from 'react-query'
 import { useFavorites } from '../../favorites/useFavorites'
 import cn from 'classnames'
 
-import HeartImage from '@/assets/images/heart-animation.png'
 import styles from './FavoriteButton.module.scss'
 interface IFavoriteButton {
   movieId: string
@@ -38,7 +37,7 @@ const FavoriteButton:FC<IFavoriteButton> = ({movieId}) => {
       className={cn(styles.button, {
         [styles.animate]: isSmashed
       })}
-      style={{backgroundImage: `url(${HeartImage.src})`}}
+      style={{backgroundImage: `url('/heart-animation.png')`}}
     />
   )
 }

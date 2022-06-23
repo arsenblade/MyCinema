@@ -1,5 +1,6 @@
 import MaterialIcon from '@/components/ui/MaterialIcon'
 import { getActorUrl, getGenreUrl } from '@/config/url.config'
+import { useAuth } from '@/hooks/useAuth'
 import { FC } from 'react'
 import FavoriteButton from '../FavoriteButton/FavoriteButton'
 import { IContent } from './content.interface'
@@ -8,6 +9,7 @@ import styles from './Content.module.scss'
 import ContentList from './ContentList/ContentList'
 
 const Content:FC<IContent> = ({movie}) => {
+  const {user} = useAuth()
   return (
     <div className={styles.content}>
       <h1>{movie.title}</h1>
@@ -32,8 +34,8 @@ const Content:FC<IContent> = ({movie}) => {
         <MaterialIcon name='MdStarRate' />
         <span>{movie.rating.toFixed(1)}</span>
       </div>
-
-      <FavoriteButton movieId={movie._id}/>
+      {user &&
+      <FavoriteButton movieId={movie._id}/>}
     </div>
   )
 }
